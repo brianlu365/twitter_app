@@ -10,7 +10,7 @@ class TwitterService
     end
   end
 
-  def latest_tweets(count=25, handle)
+  def latest_tweets(handle, count=25)
     Rails.cache.fetch(handle, expires_in: 5.minutes) do
       twtr_client.user_timeline(handle, count: count)
     end

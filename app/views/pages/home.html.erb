@@ -9,6 +9,9 @@
 
 <p>
   <% @res&.each do |r| %>
-    <li><%= parse_mentions r.text %></li>
+    <li>
+      <span style="font-weight: bold"><%= r.created_at.strftime("%Y-%m-%d %H:%M") %></span> -
+      <%= parse_mentions r.text %>
+    </li>
   <% end %>
 </p>
