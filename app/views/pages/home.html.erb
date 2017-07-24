@@ -1,0 +1,12 @@
+<h2> Enter Twitter handle below </h2>
+<%= form_tag "home", method: 'get' do %>
+  <%= label_tag(:handle, "Twitter handle:") %>
+  <%= text_field_tag(:handle) %>
+  <%= submit_tag("submit") %>
+<% end %>
+
+<p>
+  <% @res&.each do |r| %>
+    <li><%= parse_mentions r.text %></li>
+  <% end %>
+</p>
