@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is hosted on Heroku at https://agile-escarpment-23622.herokuapp.com
+Username: `admin`, password: `admin`
 
-Things you may want to cover:
+Setup:
+* ruby 2.4
+* postgresql
+* run `rails db:setup` to setup and seed db
+* default username `admin`, password: `admin`'
+* run `bundle exec rspec` to run tests
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Design choices:
+* Bcrypt for authentication. I want to keep it light. Bcrypt is good enough for this app.
+* Twitter gem for Twitter REST client.
+* ActiveSupport::Cache::MemoryStore for caching.
