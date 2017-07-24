@@ -6,10 +6,14 @@ require 'rails_helper'
 describe PagesHelper do
   describe 'parse_mentions' do
     it 'should parse and link mentioned tweeter handle' do
-      txt1 = "@brianlu365"
-      expect(helper.parse_mentions(txt1)).to eq "<a href=\"/?handle=%40brianlu365\">@brianlu365</a>"
-      txt2 = "@brian lu365"
-      expect(helper.parse_mentions(txt2)).to eq "<a href=\"/?handle=%40brian\">@brian</a> lu365"
+      txt = "@"
+      expect(helper.parse_mentions(txt)).to eq "@"
+      txt = "@12345678901234567890"
+      expect(helper.parse_mentions(txt)).to eq "<a href=\"/?handle=%40123456789012345\">@123456789012345</a>67890"
+      txt = "@brian lu365"
+      expect(helper.parse_mentions(txt)).to eq "<a href=\"/?handle=%40brian\">@brian</a> lu365"
+      txt = "@brianlu365"
+      expect(helper.parse_mentions(txt)).to eq "<a href=\"/?handle=%40brianlu365\">@brianlu365</a>"
     end
   end
 end

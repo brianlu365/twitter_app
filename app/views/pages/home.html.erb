@@ -1,9 +1,11 @@
-<h2> Enter Twitter handle below </h2>
-<%= form_tag "home", method: 'get' do %>
-  <%= label_tag(:handle, "Twitter handle:") %>
-  <%= text_field_tag(:handle) %>
-  <%= submit_tag("submit") %>
-<% end %>
+<h2> Enter Twitter handle below <span><%= link_to 'Logout', logout_path %></span> </h2>
+<p>
+  <%= form_tag "home", method: 'get' do %>
+    <%= label_tag(:handle, "Twitter handle:") %>
+    <%= text_field_tag(:handle) %>
+    <%= submit_tag("submit") %>
+  <% end %>
+</p>
 
 <p>
   <% @res&.each do |r| %>
