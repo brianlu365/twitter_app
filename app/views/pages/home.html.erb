@@ -1,4 +1,4 @@
-<h2> Enter Twitter handle below <span><%= link_to 'Logout', logout_path %></span> </h2>
+<h1> Enter Twitter handle below <span><%= link_to 'Logout', logout_path %></span></h1>
 <p>
   <%= form_tag "home", method: 'get' do %>
     <%= label_tag(:handle, "Twitter handle:") %>
@@ -7,6 +7,9 @@
   <% end %>
 </p>
 
+<% if @handle %>
+  <h2>Timeline for <%= @handle%></h2>
+<% end %>
 <p>
   <% @res&.each do |r| %>
     <li>
